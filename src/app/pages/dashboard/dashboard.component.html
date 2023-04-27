@@ -1,0 +1,56 @@
+<div class="page">
+    <div class="card-1 mb-3"> 
+        <section class="container">
+
+          <!-- HEADING -->
+          <div class="heading">
+            <h1 class="heading__title">To-Do List</h1>
+          </div>
+
+          <!-- Error MSG -->
+          <div *ngIf="errmsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{errmsg}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close">X</button>
+          </div>
+
+          <!-- INPUT -->
+          <form [formGroup]="userForm" (ngSubmit)="userSubmit()" class="form">
+            <div>
+              <input class="form-contorl" formControlName="task_name" type="text" placeholder="~Today I Need TO~" name="task" [(ngModel)]="addTaskValue" required> <!-- -->
+              <button class="button"><span>Submit</span></button>
+            </div>
+          </form>
+
+
+          <!-- LIST -->
+          <div class="toDoList">
+            <ul *ngFor="let task of taskArr">
+              <li>{{task.task_name}}
+                <button class="btn btn-danger" (click)="deleteID(task.id)">Complete</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-danger">Delete</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-info">EDIT</button>
+              </li>
+            </ul>
+          </div>
+            <!-- end -->
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="input-group p-4">
+                          <input type="text" class="form-control" placeholder="Enter task " name="task" [(ngModel)]="editTaskValue">
+                          <button class="btn btn-outline-success" type="button" data-bs-dismiss="modal" (click)="editTask()">Update</button>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </div> -->
+        </section> 
+    </div>
+</div>
