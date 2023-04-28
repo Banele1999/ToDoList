@@ -14,7 +14,7 @@ export class CrudServiceService {
   
   apiUrl1 = "http://localhost:3000/get_task"
   apiUrl2 = "http://localhost:3000/post_task"
-  apiUrl3 = "http://localhost:3000/task/:id"
+  apiUrl3 = "http://localhost:3000/get_task/id"
 
 
   getAllTask():Observable<any>{
@@ -27,7 +27,7 @@ export class CrudServiceService {
 
   deleteTask(id:any):Observable<any>{
     let ids = id;
-    return this.http.delete(`${this.apiUrl3}/${ids}`);
+    return this.http.delete(`${this.apiUrl1}/${ids}`);
   }
   
  

@@ -12,7 +12,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class DashboardComponent {
   taskArr : Task[] = [];
-  readData: any;
   addTaskValue : string = '';
   errmsg: any;
   // editTaskValue : string = '';
@@ -54,7 +53,15 @@ export class DashboardComponent {
     console.log(id, 'deleteid==>');
     this.crudservice.deleteTask(id).subscribe((res)=>{
       console.log(res, 'deleteres==>');
-      
+    });
+  }
+
+  getAllTask()
+  {
+    this.crudservice.getAllTask().subscribe((res)=>{
+      console.log(res, 'res==>');
+      this.taskArr=res.task;
+      this.getAllTask();
     });
   }
 

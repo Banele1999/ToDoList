@@ -26,11 +26,9 @@
           <div class="toDoList">
             <ul *ngFor="let task of taskArr">
               <li>{{task.task_name}}
-                <button class="btn btn-danger" (click)="deleteID(task.id)">Complete</button>
-                &nbsp;&nbsp;
-                <button class="btn btn-danger">Delete</button>
-                &nbsp;&nbsp;
-                <button class="btn btn-info">EDIT</button>
+                <button class="button-task" (click)="deleteID(task.id)"><span>Complete</span></button>
+                <!-- &nbsp;&nbsp; -->
+                <button class="button-task"><span>EDIT</span></button>
               </li>
             </ul>
           </div>
